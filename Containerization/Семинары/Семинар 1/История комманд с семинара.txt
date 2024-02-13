@@ -1,0 +1,121 @@
+125  mkdir testfolder
+
+  126  mkdir testfolder/bin
+
+  127  ldd /bin/bash
+
+  128  cp /bin/bash testfolder/bin
+
+  129  mkdir testfolder/lib
+
+  130  mkdir testfolder/lib64
+
+  131  cp /lib/x86_64-linux-gnu/libtinfo.so.6 testfolder/lib
+
+  132  cp /lib/x86_64-linux-gnu/libc.so.6 testfolder/lib
+
+  133  cp /lib64/ld-linux-x86-64.so.2 testfolder/lib64
+
+  134  chroot testfolder
+
+  135  whereis ls
+
+  136  mkdir testfolder/bin/ls
+
+  137  cp /usr/bin/ls testfolder/bin/ls
+
+  138  ldd ls
+
+  139  ldd /usr/bin/ls
+
+  140  cp /lib/x86_64-linux-gnu/libselinux.so.1 testfolder/lib
+
+  141  cp /lib/x86_64-linux-gnu/libc.so.6 testfolder/lib
+
+  142  cp /lib/x86_64-linux-gnu/libpcre2-8.so.0 testfolder/lib
+
+  143  cp /lib64/ld-linux-x86-64.so.2 testfolder/lib64
+
+  144  chroot testfolder
+
+  145  cd testfolder/
+
+  146  cd ..
+
+  147  rm -r testfolder/bin/ls
+
+  148  cp /usr/bin/ls testfolder/bin/ls
+
+  149  chroot testfolder/
+
+  150  system df
+
+  151  df
+
+  152  ls -l/proc/$$/ns
+
+  153  ls -l /proc/$$/ns
+
+  154  ls -la /proc/$$/ns
+
+  155  ls -la
+
+  156  lsns
+
+  157  man unshare
+
+  158  unshare -n
+
+  159  ip a
+
+  160  ps -aux
+
+  161  nsenter --target 4004
+
+  162  ps aux
+
+  163* 
+
+  164  ps aux
+
+  165  nsenter --target 4004 --net
+
+  166* 
+
+  167  nsenter --target 3982 --net
+
+  168  nsenter --target 3982 -n
+
+  169  nsenter --target 3982
+
+  170  ps aux
+
+  171  nsenter --target 4001
+
+  172  ps aux
+
+  173  nsenter --target 4086
+
+  174  ps aux
+
+  175  nsenter --target 4001 -n
+
+  176  unshare --net --pid --fork --mount-proc
+
+  177  ps aux
+
+  178  ls
+
+  179  ls /var/run/netns
+
+  180  ls /var/run
+
+  181  touch /var/run/netns/testgg
+
+  182  ps aux
+
+  183  mount --bind /proc/4143/ns/net /var/run/netns/testgg
+
+  184  nsenter --net=/var/run/netns/testgg
+
+  185  history

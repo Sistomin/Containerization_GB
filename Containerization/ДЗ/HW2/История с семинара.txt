@@ -1,0 +1,129 @@
+162  apt update
+  163  apt-get install lxc debootstrap bridge-utils lxc-templates -y
+  164  apt update
+  165  find /usr -name lxc-veth.conf
+  166  lxc-create -n testcontainer -t ubuntu -f /usr/share/doc/liblxc-common/examples/lxc-veth.conf
+  167  find /usr -name lxc-veth.conf
+  168  lxc-ls -f
+  169  lxc start -n testcontainer
+  170  lxc-start -n testcontainer
+  171  cd /var/run/lxc
+  172  ls
+  173  ll
+  174  nano network_up 
+  175  cd ..
+  176  cd .
+  177  cd ..
+  178  ls
+  179  cd lib
+  180  ll
+  181  cd lxc
+  182  ll
+  183  cd testcontainer
+  184  ll
+  185  nano config
+  186  lxc-start -n testcontainer
+  187  lxc-ls -f
+  188  lxc-attach -n testcontainer
+  189  lxc-ls -f
+  190  ls
+  191  cd /sys/fs/cgroup
+  192  ls
+  193  cd lxc.payload.testcontainer
+  194  ls
+  195  nano memory.min
+  196  cat memory.min
+  197  nano memory.max
+  198  cat memory.max
+  199  lxc-stop -n testcontainer
+  200  lxc-ls -f
+  201  lxc-attach -n testcontainer
+  202  reboot
+  203  lxc-ls -f
+  204  lxc-start -n testcontainer
+  205  lxc-ls -f
+  206  lxc-ls -f
+  207  lxc-attach -n testcontainer
+  208  cd /var/lib/lxc
+  209  ls
+  210  cd testcontainer/
+  211  nano config
+  212  ls
+  213  lxc-attach -n testcontainer
+  214  exit
+  215  lxc-stop -n testcontainer
+  216  cd /var/lib/lxc
+  217  cd testcontainer/
+  218  nano config
+  219  lxc-stop -n testcontainer
+  220  lxc-attach -n testcontainer
+  221  lxc-ls -f
+  222  lxc-stop -n testcontainer
+  223  nano config
+  224  ls
+  225  touch logfile
+  226  ls
+  227  cat logfile
+  228  lxc-attach -n testcontainer
+  229  nano config
+  230  y
+  231  cd /sys/fs/cgroup
+  232  ls
+  233  cd lxc.payload.testcontainer/
+  234  nano memory.max
+  235  cat memory.max
+  236  lxc-attach -n testcontainer
+  237  cd /var/lib/lxc
+  238  cd /testfolder/
+  239  cd /var/lib/lxc
+  240  cd testcontainer/
+  241  nano config
+  242  lxc-attach -n testcontainer
+  243  ~
+  244  cd /
+  245  lxc-create -n container2 -t ubuntu
+  246  lxc-ls -f
+  247  cd /var/lib/
+  248  ls
+  249  cd /var/lib/lxc
+  250  ls
+  251  cd container2/
+  252  ls
+  253  nano config
+  254  lxc-start -n container2
+  255  lxc-ls -f
+  256  nano config
+  257  y
+  258  lxc-ls -f
+  259  nano config
+  260  lxc-ls -f
+  261  lxc-stop -n container2
+  262  lxc-attach -n container2
+  263  lxc-ls -f
+  264  lxc-attach -n container2
+  265  lxc-attach -n testcontainer
+  266  reboot
+  267  lxc-ls -f
+  268  lxc-start -n container2
+  269* 
+  270  lxc-attach -n container2
+  271  lxc-attach -n testcontainer
+  272  lxc-ls -f
+  273  lxc-create -n container3 -t ubuntu
+  274  lxc-ls -f
+  275  cd /var/lib/lxc
+  276  cd /
+  277  lxc-execute -n container3 /bin/bash/
+  278  lxc-execute -n container3 /bin/bash
+  279  lxc-ls -f
+
+
+
+Bash
+
+apt-get remove docker docker-engine docker.io containerd runc
+apt-get purge docker-ce docker-ce-cli containerd.io docker-compose-plugin docker-compose
+rm -rf /etc/bash_completion.d/docker /usr/local/bin/docker-compose /etc/bash_completion.d/docker-compose
+apt install -y docker.io docker-compose
+
+У меня с compose проблема была, может у кого будет аналогичная проблема, то выше решение

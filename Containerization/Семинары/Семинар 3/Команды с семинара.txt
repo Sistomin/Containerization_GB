@@ -1,0 +1,136 @@
+Команды семинара(не по порядку)
+56 mkdir task1
+57 cd task1
+58 echo "Test" > test.txt
+59 cdexit
+60 cd /
+61 pwd
+62 cd
+63 echo "Test2" > test.txt
+64 ls
+65 cd /
+66 ls
+67 cd task1/
+68 ls
+69 cd
+70 ls
+71 cat test.txt
+72 cd /
+73 cd task1/
+74 ls
+75 cat test.txt
+docker system prune -af
+
+219 docker system df
+
+220 docker volume ls -f dangling=true
+
+221 docker system df
+
+222 docker volume rm $(docker volume ls -f dangling=true -q)
+
+223 docker system df
+
+224 mkdir testcont
+
+225 ls
+
+226 docker run
+
+227 docker run -it -h newcont --name bazyl -v /testcont:/testfolder alpine:3.16
+
+228 cd testcont/
+
+229 ls
+
+230 cd
+
+231 docker ps -a
+
+232 docker rm 1e00d9ba55ab
+
+233 docker ps -a
+
+234 cd testcont/
+
+235 ls
+
+236 nano test2.txt
+
+237 cd
+
+238 docker run -it -h newcont --name bazyl -v /testcont:/testfolder alpine:3.16
+
+239 ls testcont/
+
+240 cat testcont/test2.txt
+
+241 docker ps -a
+
+242 docker rm bazyl
+
+243 docker ps -a
+
+244 docker run -it -h newcont --name bazyl -v /root/testcont:/testfolder alpine:3.16
+
+docker run --detach --name some-mariadb --env MARIADB_ROOT_PASSWORD=123456 mariadb:10.10.2
+
+258 docker ps -a
+
+259 docker exec -it bab8472dd99f /bin/bash
+
+260 docker ps -a
+
+261 docker exec -it bab8472dd99f mysql -uroot -p
+
+262 docker ps -a
+
+263 docker exec -it bab8472dd99f mysql -uroot -p
+
+264 docker run -d --name my-phpmyadmin -p 7560:80 -e PMA_HOST=some-mariadb --link some-mariadb:db phpmyadmin/phpmyadmin:latest
+
+265 docker ps -a
+
+266 history
+
+364 docker network create gusik
+
+365 docker run -d --name db --network gusik -e MYSQL_ROOT_PASSWORD=1234 mysql:8.0
+
+366 docker ps -a
+
+367 docker run --name my-adminer -d --network gusik -p 6000:8080 adminer:4.6.1
+
+368 docker ps -a
+
+369 docker stop a6ff982f6c11
+
+370*
+
+371 docker rm a6ff982f6c11
+
+372 docker run --name my-adminer -d --network gusik -p 6000:80 adminer:4.6.1
+
+373 docker ps -a
+
+374 docker stop d400eb4c3185
+
+375 docker rm d400eb4c3185
+
+376 docker run --name my-adminer -d --network gusik -p 6080:8080 adminer:4.6.1
+
+377 docker ps -a
+
+378 docker rm 62b350e068a0
+
+379 docker stop 62b350e068a0
+
+380 docker rm 62b350e068a0
+
+381 docker ps -a
+
+382 docker run --name my-adminer -d --network gusik -p 6080:8080 adminer:4.8.1
+
+383 docker ps -a
+
+384 history
